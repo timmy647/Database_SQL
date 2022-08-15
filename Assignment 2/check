@@ -1,0 +1,45 @@
+#!/bin/sh
+
+rm -f tests/*.observed
+ulimit -t 2
+
+for t in `seq -w 1 39`
+do
+	cmd=`grep "^$t" tests/tests | awk '{print $3}'`
+	if [ ! -x "$cmd" ]
+	then
+		echo "No '$cmd' script"
+		continue
+	fi
+
+	start=`(date +%s%3N)`
+	question=`grep "^$t" tests/tests | cut -f2`
+	output=`eval $question`
+	echo "$output" | head -200 > tests/$t.observed 2>&1
+	end=`(date +%s%3N)`
+	take=`echo "scale=2; ($end-$start)/1000" | bc`
+
+	diffs=`diff tests/$t.observed tests/$t.expected`
+	if [ -z "$diffs" ]
+	then
+		echo Test $t PASSED \(${take}s\)
+	else
+		diffs=`diff -w tests/$t.observed tests/$t.expected`
+		if [ -z "$diffs" ]
+		then
+			echo Test $t Difference in spaces  \(${take}s\)
+		else
+			sort tests/$t.observed > tests/$t.sorted1
+			sort tests/$t.expected > tests/$t.sorted2
+			diffs=`diff -w tests/$t.sorted1 tests/$t.sorted2`
+			rm -f tests/$t.sorted1 tests/$t.sorted2
+			if [ -z "$diffs" ]
+			then
+				echo Test $t Different order  \(${take}s\)
+			else
+				echo Test $t FAILED  \(${take}s\)
+			fi
+		fi
+		echo "Check differences using 'diff tests/$t.observed tests/$t.expected'"
+	fi
+done

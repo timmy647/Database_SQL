@@ -1,0 +1,39 @@
+01	python3 q1.py
+02	python3 q1.py 5
+03	python3 q1.py 20
+04	python3 q1.py xyz
+05	python3 q1.py 0
+06	python3 q1.py 1
+07	python3 q2.py
+08	python3 q2.py 1999
+09	python3 q2.py ocean
+10	python3 q2.py dangerous
+11	python3 q2.py breakfast
+12	python3 q2.py "Ocean's Eleven"
+13	python3 q2.py 'Ne Zha'
+14	python3 q2.py 'You Are the Apple of My Eye'
+15	python3 q2.py 'Dragon Ball Z: Super Android 13'
+16	python3 q3.py
+17	python3 q3.py xyzzy
+18	python3 q3.py 'Avatar'
+19	python3 q3.py 'The Ring'
+20	python3 q3.py '^The Ring$' 2002
+21	python3 q3.py ': the return of the king'
+22	python3 q3.py 'strangelove' 1964
+23	python3 q3.py 'stars' xyzzy
+24	python3 q3.py 'return of the king' 1234
+25	python3 q3.py ring 2002
+26	python3 q4.py
+27	python3 q4.py xyzzy
+28	python3 q4.py 'Rafal Zimowski'
+29	python3 q4.py 'Horst Rieck'
+30	python3 q4.py 'helen morse'
+31	python3 q4.py belushi
+32	python3 q4.py belushi 1954
+33	python3 q4.py 'john Belushi'
+34	python3 q4.py 'David Lynch'
+35	python3 q4.py 'spike lee'
+36	python3 q4.py 'Peter Sellers'
+37	python3 q4.py 'michael j\. fox'
+38	python3 q4.py 'Gary Rosen'
+39	python3 q4.py 'nutan prasad'
